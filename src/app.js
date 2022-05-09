@@ -4,6 +4,7 @@ const express = require('express')
 const geoCode = require('./utils/geoCode')
 const forecast = require('./utils/forecast')
 const app = express()
+const port = process.env.PORT || 4443
 const publicDirectoryPath = path.join(__dirname,'../public') // console.log(__dirname)// console.log(path.join(__dirname,'../public'))
 const viewsPath = path.join(__dirname,'../templates/views')
 const partialsPath = path.join(__dirname,'../templates/partials')
@@ -75,6 +76,6 @@ app.get('*',(req,res)=>{
     })
 })
 
-app.listen(4443,'127.0.0.1',()=>{
-    console.log("server start at port no = 4443")
+app.listen(port,()=>{
+    console.log(`server start at port no = ${port}`)
 })
